@@ -4,7 +4,8 @@
   "description": "react webpack mongo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "babel-node server/app.jsx",
+    "webpack-devserver": "webpack-dev-server --debug --hot --devtool eval-source-map --output-pathinfo --watch --colors --inline --content-base public --port 8090 --host 0.0.0.0"
   },
   "repository": {
     "type": "git",
@@ -17,17 +18,25 @@
   },
   "homepage": "https://github.com/joshuaKpi/react2#readme",
   "dependencies": {
-    "body-parser": "^1.12.3",
+    "babel-polyfill": "^6.16.0",
+    "body-parser": "^1.15.2",
     "cors": "*",
     "express": "*",
-    "mongoose": "*"
+    "lodash": "^4.16.6",
+    "mongoose": "^4.6.6",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-masonry-component": "^4.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",
     "babel-preset-es2015": "^6.18.0",
-    "webpack": "^1.12.12",
-    "webpack-dev-server": "^1.14.1"
+    "babel-preset-react": "^6.16.0",
+    "webpack": "^1.13.3",
+    "webpack-dev-middleware": "^1.8.4",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-hot-middleware": "^2.13.1"
   }
 }

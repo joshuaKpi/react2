@@ -1,14 +1,22 @@
 const webpack = require('webpack');
+const path = require('path');
 
-const config = {
+
+module.exports = {
   entry: [
-    
+    'babel-polyfill',
+    './client/main.js'
   ],
+  output: {
+    path: __dirname + '/public/build/',
+    publicPath: "build/",
+    filename: "bundle.js"
+  },
   loaders: [
     {
       test: /\.js$/,
       exclude: /(node_modules|bower_components)/,
-      loader: 'babel', // 'babel-loader' is also a valid name to reference
+      loaders: ['babel-loader', 'react-hot'], // 'babel-loader' is also a valid name to reference
       query: {
         presets: ['es2015']
       }
@@ -16,4 +24,4 @@ const config = {
   ]
 };
 
-module.exports = config;
+//module.exports = config;
