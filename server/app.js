@@ -5,7 +5,7 @@
 const
     express = require('express'),
     bodyParser = require('body-parser'),
-    db = require('./utils/DataBaseUtils');
+    db = require('./utils/DataBaseUtils.jsx');
 
 db.setUpConnection();
 

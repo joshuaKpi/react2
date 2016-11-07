@@ -1,10 +1,9 @@
 
-//import '../models/Note';
+import '../models/Note';
 
 
 const
-    mongoose = require('mongoose'),
-    Notes = require('..models/Note');
+    mongoose = require('mongoose');
 
 const Note = mongoose.model('Note');
 
