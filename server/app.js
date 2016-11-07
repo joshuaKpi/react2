@@ -1,11 +1,9 @@
-'use strict';
-
 /*import express from 'express';*/
 
 const
     express = require('express'),
     bodyParser = require('body-parser'),
-    db = require('./utils/DataBaseUtils.jsx');
+    db = require('./utils/DataBaseUtils');
 
 db.setUpConnection();
 
