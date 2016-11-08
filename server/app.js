@@ -1,16 +1,25 @@
-/*import express from 'express';*/
+'use strict';
 
-const
-    express = require('express'),
+import express from 'express';
+import bodyParser from 'body-parser';
+import { serverPort } from '../etc/config.json';
+
+import * as db from './utils/DataBaseUtils.js';
+
+/*var
     bodyParser = require('body-parser'),
-    db = require('./utils/DataBaseUtils');
+    db = require('./utils/DataBaseUtils'),
+    config = require('../webpack.config');*/
 
 db.setUpConnection();
 
-let app = express();
+const app = express();
 
 app.use( bodyParser.json() );
 
+app.get('/', (req, res) => {
+  res.sendFile('C:/Projects/Train/react2/client/main.js');
+});
 
 app.get('/notes', (req, res) => {
     db.listNotes().then(data => res.send(data));
@@ -24,8 +33,8 @@ app.delete('/notes/:id', (req, res) => {
     db.deleteNote(req.params.id).then(data => res.send(data));
 });
 
-let server = app.listen(3030, () => {
-    console.log('Server up and listen port 3030');
+let server = app.listen(serverPort, () => {
+    console.log(`Server up and listen port ${serverPort}`);
 });
 
 

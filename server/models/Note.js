@@ -1,12 +1,14 @@
-import mongoose from 'mongoose';
+'use strict';
 
-const Schema = mongoose.Schema;
+/*import mongoose from 'mongoose';*/
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-const NoteSchema = new Schema({
+var noteSchema = new Schema({
     title: { type: String },
     text: { type: String, required: true},
     color: { type: String },
     createdAt: { type: Date }
 });
 
-const Note = mongoose.model('Note', NoteSchema);
+var Note = mongoose.model('Note', noteSchema);

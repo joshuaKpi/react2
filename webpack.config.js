@@ -8,6 +8,9 @@ module.exports = {
     'babel-polyfill'/*,
     './client/main.js'*/
   ],
+  resolve: {
+    extensions: ["", ".js", ".jsx"]
+  },
   output: {
     path: __dirname + '/public/build/',
     publicPath: "build/",
@@ -15,9 +18,12 @@ module.exports = {
   },
   loaders: [
     {
-      test: /\.js$/,
+      test: /\.jsx?$/,
       exclude: /(node_modules|bower_components)/,
-      loaders: ['babel-loader', 'react-hot'], // 'babel-loader' is also a valid name to reference
+      loaders: ['babel-loader'],  // 'babel-loader' is also a valid name to reference
+      include: [
+          path.resolve(__dirname, '')
+      ],
       query: {
         presets: ['es2015', 'react']
       }
