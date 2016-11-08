@@ -17,9 +17,9 @@ const app = express();
 
 app.use( bodyParser.json() );
 
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
   res.sendFile('C:/Projects/Train/react2/client/main.js');
-});
+});*/
 
 app.get('/notes', (req, res) => {
     db.listNotes().then(data => res.send(data));
